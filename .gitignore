@@ -1,0 +1,5 @@
+.DS_Store
+.flickrExclusion
+*.log
+*.aux
+*.synctex.gz
