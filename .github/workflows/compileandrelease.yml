@@ -8,6 +8,9 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
+      - name: Get Current Date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M-%S')"
       - name: Set up Git repository
         uses: actions/checkout@v2
       - name: Compile LaTeX document
@@ -20,8 +23,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.run_id }}
-          release_name: Release ${{ github.run_id }}
+          tag_name: ${{ steps.date.outputs.date}}
+          release_name: Release ${{ steps.date.outputs.date }}
           draft: false
           prerelease: false
 
