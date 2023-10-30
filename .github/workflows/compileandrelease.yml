@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Get Current Date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d %H-%M')"
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M')"
       - name: Set up Git repository
         uses: actions/checkout@v2
       - name: Compile LaTeX document
